@@ -1,12 +1,9 @@
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 const { Web3 } = require("web3");
 const { abi, evm } = require("./compile");
-const { environments } = require("./environments");
+const { MNEMONIC, INFURA_API_URL } = require("./environments");
 
-const provider = new HDWalletProvider(
-  environments.MNEMONIC,
-  environments.INFURA_API_URL
-);
+const provider = new HDWalletProvider(MNEMONIC, INFURA_API_URL);
 
 const web3 = new Web3(provider);
 
@@ -28,3 +25,5 @@ const deploy = async () => {
   console.log("Contract deployed to ", result.options.address);
   provider.engine.stop();
 };
+
+deploy();

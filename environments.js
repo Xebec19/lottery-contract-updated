@@ -1,8 +1,6 @@
-import * as dotenv from "dotenv";
+require("dotenv").config();
 
-dotenv.config();
-
-export const environments = {
+module.exports = {
   MNEMONIC: process.env.MNEMONIC,
   INFURA_API_URL: process.env.INFURA_API_URL,
 };
